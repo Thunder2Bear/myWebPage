@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>表单选择</title>
+    <link rel="stylesheet" href="/css/common.css">
+    <style>
+        .tab-hd,.tab-bd {
+            position:absolute;
+            left:10px;
+            right:10px;
+            min-width:1000px;
+        }
+        .tab-hd{
+            top:10px;
+            height:80px;
+        }
+        .tab-bd{
+            top:100px;
+            bottom:10px;
+            border:1px solid #ccc;
+            background:#ebf8ff;
+            over-flow:auto;
+        }
+        .tab-hd a {
+            display:inline-block;
+            text-decoration: none;
+            color: #666666;
+            border: 1px solid #666666;
+            font: normal 14px/20px sans-serif;
+            padding:3px 5px;
+        }
+        .tab-hd a.on { 
+            color: #ab6f00; 
+            border: 1px solid #ab6f00; 
+        }
+        iframe{
+            width:100%;
+            height:100%;
+        }
+    </style>
+</head>
+<body>
+    <div class="tab-hd">
+        <a href="/form/agency/edit.html" target="tabContent">代理机构信息编辑</a>
+        <a href="/form/agency/view.html" target="tabContent">代理机构信息查看</a>
+    </div>
+    <div class="tab-bd">
+        <iframe src="/form/instruction.html" frameborder="0" name="tabContent" id="tabContent"></iframe>
+    </div>
+    <script src="//cdn.bootcss.com/jquery/3.1.0/jquery.min.js"></script>
+    <script type="text/javascript">
+        $(function(){
+            $('.tab-hd').on('click','a',function(){
+                var _this = $(this);
+                if(!_this.hasClass('on')){
+                    _this.addClass('on').siblings('.on').removeClass('on');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
